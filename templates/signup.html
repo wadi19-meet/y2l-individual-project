@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>signup</title>
+
+</head>
+<style>
+  
+  body {
+    background-image: url('/static/images/signin3.jpg');
+    background-color: black;
+    background-size:cover; 
+
+
+  }
+
+
+#title{margin-left: 50%;
+    color:white;
+    
+    margin:center;
+    font-size:50px;
+    font-family:'broadway';}
+
+
+
+form { 
+        width: 250px;
+        height: 300px;
+        background-image: linear-gradient(white,darkblue);
+        opacity:0.8;
+        
+        margin-left: 500px ;
+        margin-top: 100px;
+}
+
+
+
+
+
+
+
+
+</style>
+<body>
+
+
+<form action="/sign-up", method="POST">
+  First name:<br>
+  <input type="text" name="firstname" >
+  <br>
+  Last name:<br>
+  <input type="text" name="lastname" >
+  <br>
+  username :
+  <input type="text" name="username" >
+  <br>
+  password :
+  <input type="password" name="password">
+  <br>
+  age
+  <input type="text" name="age" >
+  <br><br>
+  <input type="submit" value="Submit">
+</form> 
+
+{% if error_message %}
+<strong><p>{{ error_message }}</p></strong>
+{% endif %}
+
+<!-- <form action='/sign-up' method="POST">
+
+<div class="row">
+
+<div class="col-md-3">
+<input type="text" name="firstname" placeholder="firstname">
+</div>
+
+<div class="col-md-3">
+<input type="text" name="lastname" placeholder="lastname">
+</div>
+<br>
+
+<div class="col-md-3">
+<input type="text" name="user" placeholder="Username">
+</div>
+
+<br>
+
+<div class="col-md-3">
+<input type="password" name="password" placeholder="password">
+</div>
+<br>
+
+<div class="col-md-3">
+<input type="text" name="age" placeholder="age">
+</div>
+<br>
+<input type="submit" value="Submit">
+</div>
+</form> -->
+</body>
+</html>

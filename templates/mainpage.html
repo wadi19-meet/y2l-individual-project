@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+
+
+
+<body background="/static/images/mainpage1.jpg">
+
+
+
+
+<form action = "mainpage" method="POST">
+
+<!-- <a href="{{url_for('mainpage')}}" class = "btn btn-primary"></a>
+ -->
+
+
+<a href="{{'/add_info'}}" class="btn btn-primary" role="button">add</a>
+</form>
+
+
+<!-- <div>
+{% for info in info%}
+
+<h1>{{info.id}}</h1>
+<h1>{{info.name}}</h1>
+<h1>{{info.quantity}}</h1>
+{%endfor%}
+ -->
+<!-- </div> -->
+
+
+
+
+
+
+
+<div class = "row  col">
+<!-- <div class="col-lg-4"> -->
+ {% for i in info %}
+ 
+ <!-- <div class="card"> -->
+  <div class="card-header">
+
+  
+  <div class="card-body">
+
+    <h5 class="card-title">{{i.name}}</h5>
+    <p class="card-text">{{i.quantity}}</p>
+
+	<a href="{{url_for('detail_log', i=i.identity)}}" class="btn btn-primary" role="button">Details</a>
+  
+  </div>
+  </div>
+  {%endfor%}
+</div>
+</div>
+</div>
+
+</body>
+
+</html>

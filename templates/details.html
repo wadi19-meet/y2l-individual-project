@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>details</title>
+</head>
+<body>
+
+
+
+<div>
+	<h1>Id = {{ip.identity}}</h1>
+ 	<h1>name:<br>
+ 	{{ip.name}}</h1>
+    <h1>quantity:<br>
+    {{ip.quantity}}</h1>
+
+    <form action="/decrease", method="POST">
+    	<input type="hidden" name="identity", value="{{ ip.identity }}">
+    	<input type="submit" name="Sell", value="Sell">
+    </form>
+<br>
+    <form action="/increase", method="POST">
+    	<input type="hidden" name="identity", value="{{ ip.identity }}">
+    	<input type="submit" name="add", value="add one">
+    </form>
+<br>
+	<form action="/delete", method="POST">
+    	<input type="hidden" name="identity", value="{{ ip.identity }}">
+    	<input type="submit" name="delete", value="delete">
+    </form>
+
+<form action="/mainpage" method="GET">   
+<div class="topnav">
+
+<input type="submit" name="Mainpage" value="Mainpage">
+
+</div>
+</form>
+
+
+
+</div>
+
+</body>
+
+
+</html>
