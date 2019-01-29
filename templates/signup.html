@@ -101,10 +101,16 @@
   <br><br>
 
   <input type="submit" value="Submit">
+  
+  <!-- <form action="/fpage" method="GET">   
+
+  <input type="submit" name="fpage" value="fpage">
+ -->
 </form> 
 </div>
 </div>
-
+<a href="{{url_for('fpage')}}" class="btn" role="button">back</a>
+</div>
 {% if error_message %}
 <strong><p>{{ error_message }}</p></strong>
 {% endif %}

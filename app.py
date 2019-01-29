@@ -21,9 +21,13 @@ def mainpage():
 
 @app.route('/details/<int:i>')
 def detail_log(i):
-    ip = get_one(i)
-    return render_template("details.html", ip = ip)
-
+    if "login" in session and session["login"]:
+        username = session["username"]
+        # info = database.get_user_info(username)
+        ip = get_one(i)
+        return render_template("details.html", ip = ip)
+    else:
+        return "you're not logged in"
 @app.route('/sign-up', methods=["POST", "GET"])
 def signup():
     if request.method == 'GET':
@@ -43,6 +47,7 @@ def signup():
         except Exception as e:
             print("Error")
             return render_template("signup.html", error_message=str(e.__repr__()))
+        return redirect(url_for('fpage'))
 
 @app.route('/log-in', methods=['GET', 'POST'])
 def login():
@@ -59,7 +64,7 @@ def login():
         else:
             print('error:username or password are incorrect!!')
             return render_template('login.html', incorrect_user_or_pass='error:username or password are incorrect!! ')
-
+        return redirect(url_for('fpage'))
 
 @app.route('/add_info', methods=['GET', 'POST'])
 def add_info():
