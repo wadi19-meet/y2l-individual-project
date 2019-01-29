@@ -3,7 +3,50 @@
 <head>
 	<title>details</title>
 </head>
-<body>
+<style type="text/css">
+.w [type = submit]{
+background-color: #007bff;
+border-radius: 8px;
+color: white;
+height: 40px;
+width: 90px;
+/*font-size: 300px;*/
+position: absolute;
+left:20px;
+}
+.a [type = submit]{
+background-color: #007bff;
+border-radius: 8px;
+color: white;
+height: 40px;
+width: 90px;
+/*font-size: 300px;*/
+position: absolute;
+left:130px;
+}
+.d [type = submit]{
+background-color: #007bff;
+border-radius: 8px;
+color: white;
+height: 40px;
+width: 90px;
+/*font-size: 300px;*/
+position: absolute;
+left:250px;
+	}
+.i [type = submit]{
+background-color: #007bff;
+border-radius: 8px;
+color: white;
+height: 40px;
+width: 90px;
+position: absolute;
+top:0px;
+right: 0px;
+}
+
+</style>
+<body  background="/static/images/mainpage1.jpg">
 
 
 
@@ -13,24 +56,28 @@
  	{{ip.name}}</h1>
     <h1>quantity:<br>
     {{ip.quantity}}</h1>
-
+<div class="w">
     <form action="/decrease", method="POST">
     	<input type="hidden" name="identity", value="{{ ip.identity }}">
-    	<input type="submit" name="Sell", value="Sell">
+    	<input type="submit"  name="Sell", value="Sell">
     </form>
-<br>
+</div>
+
+<div class ="a">
     <form action="/increase", method="POST">
     	<input type="hidden" name="identity", value="{{ ip.identity }}">
-    	<input type="submit" name="add", value="add one">
+    	<input type="submit"  name="add", value="Add one">
     </form>
-<br>
+</div>
+
+<div class="d">
 	<form action="/delete", method="POST">
     	<input type="hidden" name="identity", value="{{ ip.identity }}">
-    	<input type="submit" name="delete", value="delete">
+    	<input type="submit" name="delete", value="Delete">
     </form>
-
+</div>
+<div class="i">
 <form action="/mainpage" method="GET">   
-<div class="topnav">
 
 <input type="submit" name="Mainpage" value="Mainpage">
 

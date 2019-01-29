@@ -34,6 +34,8 @@ def signup():
         username = request.form['username']
         password = request.form['password']
         age = request.form['age']
+        
+
         try:
             database.add_account(first_name, last_name, username, password, age)
             return redirect(url_for('login'))
@@ -94,6 +96,13 @@ def delete_item():
     identity = request.form["identity"]
     database.delete_item(identity)
     return redirect(url_for("mainpage", i=identity))
+
+
+
+@app.route('/signout')
+def signout():
+    session.clear()
+    return redirect(url_for('fpage'))
 
 
 

@@ -93,3 +93,6 @@ def increase_quantity(identity):
 def delete_item(identity):
     delete = session.query(Info).filter_by(identity=identity).delete()
     session.commit()
+
+# def user_pass(username, password):
+    

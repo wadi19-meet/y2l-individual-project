@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html>
-<head>
+<!-- saved from url=(0029)http://127.0.0.1:5000/sign-up -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>signup</title>
 
-</head>
 <style>
   
   body {
@@ -62,7 +61,8 @@
 
 
 
-</style>
+</style></head>
+
 <body>
 
  <div class="he">
@@ -72,45 +72,41 @@
   <h1>Inventory managment</h1>
 </div>
   
-<form action="/sign-up", method="POST">
+<form action="http://127.0.0.1:5000/sign-up" ,="" method="POST">
 <div class="la">
 <div class="li">
   First name:<br>
  
-  <input type="text" name="firstname" required >
+  <input type="text" name="firstname">
   <br>
 
   Last name:<br>
 
-  <input type="text" name="lastname" required >
+  <input type="text" name="lastname">
   <br>
 
   username :<br>
 
-  <input type="text" name="username" required >
+  <input type="text" name="username">
   <br>
 
   password :<br>
 
-  <input type="password" name="password" required>
+  <input type="password" name="password">
   <br>
 
   age:<br>
 
-  <input type="text" name="age" required >
+  <input type="text" name="age">
   <br><br>
 
   <input type="submit" value="Submit">
-</form> 
+ 
 </div>
-</div>
+</div></form>
 
-{% if error_message %}
-<strong><p>{{ error_message }}</p></strong>
-{% endif %}
-{% if error %}
-<h1>{{msg}}</h1>
-{%endif%}
+
+
 <!-- <form action='/sign-up' method="POST">
 
 <div class="row">
@@ -142,5 +138,5 @@
 <input type="submit" value="Submit">
 </div>
 </form> -->
-</body>
-</html>
+
+</body></html>

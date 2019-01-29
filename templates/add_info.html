@@ -3,19 +3,48 @@
 <head>
 
 </head>
-<body>
+<style>
+.he{
+  /*background-color: white;*/
+
+  position: absolute;
+  top: -15px;
+  right: 400px;
+  font-weight: bold;
+  font-size: 30px;
+
+}
+.la{
+	width: 300px;
+	height: 200px; 
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -100px; 
+	margin-left: -150px; 
+}
+
+
+</style>
+<body  background="/static/images/mainpage1.jpg">
 <form action="/add_info", method="POST">
 
 <!-- item_id:<br>
 <input type="number" name="id"><br> -->
+
+<div class="he">
+<h1>Inventory managment</h1>
+</div>
+<div class="la">
+
 Name :<br> 
-<input type="text" name="name"><br><br>
+<input type="text" name="name" required><br><br>
 
 Quantity :<br>
 
-<input type="text" name="quantity"><br><br>
+<input type="number" name="quantity" required><br><br>
 <input type="submit" name="Add"> <br><br>
-
+</div>
 </form>
 </body>
 </html>
