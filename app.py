@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for, redirect , session
+from flask import Flask, render_template, request, url_for, redirect , session 
 import database
 from database import get_one
 app = Flask(__name__)
@@ -15,7 +15,9 @@ def mainpage():
         username = session["username"]
         info = database.get_user_info(username)
         return render_template("mainpage.html", info=info if info else [])
-    else:
+    # elif "signout" in session and session["signout"]:
+    else:    
+        
         return "you're not logged in"
 
 
@@ -60,29 +62,36 @@ def login():
             print("success")
             # run a differnet function
             info = database.get_user_info(session["username"])
-            return render_template("mainpage.html", info=info if info else [])
+            return redirect(url_for("mainpage", info=info if info else []))
         else:
             print('error:username or password are incorrect!!')
             return render_template('login.html', incorrect_user_or_pass='error:username or password are incorrect!! ')
-        return redirect(url_for('fpage'))
+    return redirect(url_for('fpage'))
 
 @app.route('/add_info', methods=['GET', 'POST'])
 def add_info():
-    if request.method =='GET':
-        return render_template ("add_info.html")
-    elif request.method=='POST':
-        # id = request.form['id']
-        name = request.form['name']
-        quantity = request.form['quantity']
+    if "login" in session and session["login"]:
+        username = session["username"] 
 
-        database.add_info(name,quantity, submitted=session["username"])
-        info = database.print_info()
+        if request.method =='GET':
+            return render_template ("add_info.html")
+        elif request.method=='POST':
+            
+                # identity= session['identity']
+                name = request.form['name']
+                quantity = request.form['quantity']
 
-        print(name, quantity)
+                database.add_info(name,quantity, submitted=session["username"])
+                info = database.print_info()
 
-        # return redirect(url_for('mainpage'),add=add)
-        return redirect(url_for("mainpage"))
+                print(name, quantity)
 
+            # return redirect(url_for('mainpage'),add=add)
+                
+                return redirect(url_for("mainpage"))
+    else:
+        return"you are not logged in"
+    return redirect(url_for("mainpage"))    
 
 @app.route("/decrease", methods=["POST"])
 def decrease_item():
@@ -106,6 +115,7 @@ def delete_item():
 
 @app.route('/signout')
 def signout():
+    # session['signout']=True
     session.clear()
     return redirect(url_for('fpage'))
 
