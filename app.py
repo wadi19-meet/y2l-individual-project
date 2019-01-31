@@ -3,7 +3,7 @@ import database
 from database import get_one
 app = Flask(__name__)
 identity = 0
-
+app.secret_key = 'super secret key'
 @app.route('/')
 def fpage():
     return render_template("fpage.html")
